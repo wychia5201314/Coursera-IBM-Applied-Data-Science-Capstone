@@ -89,13 +89,13 @@ def update_scatter_plot(entered_site, payload_range):
         # No site filter, just payload range filter
         filtered_df = spacex_df[(spacex_df['Payload Mass (kg)'] >= min_payload) &
                                 (spacex_df['Payload Mass (kg)'] <= max_payload)]
-        title = 'Launch Outcome vs Payload Mass (All Sites)'
+        title = 'Payload Mass vs Launch Outcome (All Sites)'
     else:
         # Filter the dataframe based on the selected site and payload range
         filtered_df = spacex_df[(spacex_df['Launch Site'] == entered_site) &
                                 (spacex_df['Payload Mass (kg)'] >= min_payload) &
                                 (spacex_df['Payload Mass (kg)'] <= max_payload)]
-        title = f'Launch Outcome vs Payload Mass ({entered_site})'
+        title = f'Payload Mass vs Launch Outcome ({entered_site})'
 
     # Create a scatter plot with Payload Mass on x-axis and class on y-axis
     fig = px.scatter(data_frame=filtered_df,
